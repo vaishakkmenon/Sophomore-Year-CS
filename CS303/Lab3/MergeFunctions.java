@@ -2,6 +2,8 @@ package CS303.Lab3;
 
 public class MergeFunctions
 {
+
+    //Original merge function, need to ask about difference
     public int[] merge(int[] array,int left,int mid,int right)
     {
         int size1 = mid - left + 1;
@@ -39,4 +41,40 @@ public class MergeFunctions
         return array;
     }
 
+    public int[] newMerge(int[] array, int[] temp, int left, int mid, int right)
+    {
+
+        int i = left;
+        int j = mid + 1;
+
+        for(int k = left; k < right; k++)
+        {
+            temp[k] = array[k];
+        }
+
+        for(int m = left; m < right; m++)
+        {
+            if(i > mid)
+            {
+                array[m] = temp[j];
+                j++;
+            }
+            else if(j > right)
+            {
+                array[m] = temp[i];
+                i++;
+            }
+            else if(temp[j] < temp[i])
+            {
+                array[m] = temp[j];
+                j++;
+            }
+            else
+            {
+                array[m] = temp[i];
+                i++;
+            }
+        }
+        return array;
+    }
 }
