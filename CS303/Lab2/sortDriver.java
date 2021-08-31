@@ -9,11 +9,17 @@ public class sortDriver
     public static void main(String[] args)
     {
         insertionSort iS = new insertionSort();
-        int[] input_100 = new int[10];
-        String[] sArray = new String[10];
-        int[] sorted_100 = new int[10];
+
+        int[] input_100 = new int[]{};
+        String[] sArray = new String[]{};
+        int[] sorted_100 = new int[]{};
+
+        int[] input_1000 = new int[]{};
+        String[] sArray2 = new String[]{};
+        int[] sorted_1000 = new int[]{};
 
         File f1 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab2\\input_100.txt");
+        File f2 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab2\\input_1000.txt");
 
         try 
         {
@@ -27,19 +33,28 @@ public class sortDriver
             e.printStackTrace();
         }
 
-        System.out.println(sArray.length);
-        for(int i = 0; i < sArray.length; i++)
+        try 
         {
-            input_100[i] = Integer.parseInt(sArray[i]);
-            System.out.print(input_100[i] + " ");
+            Scanner sc = new Scanner(f2);
+            sArray2 = sc.nextLine().trim().split(" ");
+            input_1000 = new int[sArray2.length];
+            sc.close();
+        } 
+        catch (FileNotFoundException e) 
+        {
+            e.printStackTrace();
         }
-        
-        System.out.println("Length: " + input_100.length);
-        sorted_100 = iS.iSort(input_100);
 
-        for(int j = 0; j < sorted_100.length; j++)
-        {
-            System.out.print(sorted_100[j] + " ");
-        }
+        long sTime_100 = System.nanoTime();
+        sorted_100 = iS.iSort(input_100);
+        long eTime_100 = System.nanoTime() - sTime_100;
+
+        System.out.println("Time taken to insertion sort array of 100 numbers: " + eTime_100);
+
+        long sTime_1000 = System.nanoTime();
+        sorted_1000 = iS.iSort(input_1000);
+        long eTime_1000 = System.nanoTime() - sTime_1000;
+
+        System.out.println("Time taken to insertion sort array of 1000 numbers: " + eTime_1000);
     }    
 }
