@@ -43,7 +43,6 @@ public class MergeFunctions
 
     public int[] newMerge(int[] array, int[] temp, int left, int mid, int right)
     {
-
         int i = left;
         int j = mid + 1;
 
@@ -79,7 +78,8 @@ public class MergeFunctions
     }
 
     //Original mergeSort
-    public int[] mergeSort(int[] array, int left, int right)
+    
+    public void mergeSort(int[] array, int left, int right)
     {
         if(left < right)
         {
@@ -89,10 +89,9 @@ public class MergeFunctions
             merge(array, left, mid, right);
         }
 
-        return array;
     }
 
-    public int[] newMergeSort(int[] array, int[] temp, int left, int right)
+    public void newMergeSort(int[] array, int[] temp, int left, int right)
     {
         if(left < right)
         {
@@ -102,6 +101,5 @@ public class MergeFunctions
             newMerge(array, temp, left, mid, right);
         }
 
-        return array;
     }
 }
