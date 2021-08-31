@@ -91,4 +91,17 @@ public class MergeFunctions
 
         return array;
     }
+
+    public int[] newMergeSort(int[] array, int[] temp, int left, int right)
+    {
+        if(left < right)
+        {
+            int mid = (left + right) / 2;
+            newMergeSort(array, temp, left, mid);
+            newMergeSort(array, temp, mid + 1, right);
+            newMerge(array, temp, left, mid, right);
+        }
+
+        return array;
+    }
 }
