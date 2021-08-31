@@ -9,11 +9,11 @@ public class insertionSort
         for (int j = 1; j < array.length; j++)
         {
             key = array[j];
-            i = array[j-1];
+            i = j - 1;
             while(i > 0 && array[i] > key)
             {
                 array[i + 1] = array[i];
-                array[i] = array[i - 1];
+                i = i - 1;
             }
             array[i + 1] = key;
         }
