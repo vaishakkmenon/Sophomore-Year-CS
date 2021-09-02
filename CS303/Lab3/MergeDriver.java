@@ -8,7 +8,7 @@ public class MergeDriver
 {
     public static void main(String[] args)
     {
-        File f1 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab2\\input_100.txt");
+        File f1 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab3\\input_100.txt");
         MergeFunctions mFun = new MergeFunctions();
         int[] array_100 = new int[]{};
 
@@ -34,8 +34,8 @@ public class MergeDriver
         }
 
         System.out.println();
-        int[] tempArray = new int[array_100.length];
-        mFun.newMergeSort(array_100, tempArray, 0, array_100.length-1);
+        //int[] tempArray = new int[array_100.length];
+        mFun.mergeSort(array_100, 0, array_100.length-1);
 
         for(int j : array_100)
         {

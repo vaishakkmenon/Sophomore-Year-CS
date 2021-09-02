@@ -3,44 +3,58 @@ package CS303.Lab3;
 public class MergeFunctions
 {
 
-    //Original merge function, need to ask about difference
-    public int[] merge(int[] array,int left,int mid,int right)
+    //Original mergeSort
+    public void mergeSort(int[] A, int p, int r)
     {
-        int size1 = mid - left + 1;
-        int size2 = right - mid;
-
-        int[] temp1 = new int[size1];
-        int[] temp2 = new int[size2];
-
-        for(int i = 0; i < temp1.length; i++)
+        if(p < r)
         {
-            temp1[i] = array[left + i - 1];
+            int q = (p + r)/2;
+            mergeSort(A, p, q);
+            mergeSort(A, q + 1, r);
+            merge(A, p, q, r);
         }
 
-        for(int j = 0; j < temp2.length; j++)
+    }
+    
+    //Original merge function, need to ask about difference
+    public void merge(int[] A,int p,int q,int r)
+    {
+        int n1 = q - p + 1;
+        int n2 = r - q;
+
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+
+        for(int i = 1; i < n1; i++)
         {
-            temp2[j] = array[mid + j];
+            L[i] = A[p + i - 1];
+            
         }
 
-        int k = 0;
-        int m = 0;
-
-        for(int n = left; n < right; n++)
+        for(int j = 1; j < n2; j++)
         {
-            if(temp1[k] <= temp2[m])
+            R[j] = A[q + j];
+        }
+
+        int i = 0;
+        int j = 0;
+
+        for(int k = p; k < r; k++)
+        {
+            if(L[i] <= R[j])
             {
-                array[n] = temp1[k];
-                k++;
+                A[k] = L[i];
+                i++;
             }
             else
             {
-                array[n] = temp2[m];
-                m++;
+                A[k] = R[j];
+                j++;
             }
         }
-        return array;
     }
 
+    /*
     public int[] newMerge(int[] array, int[] temp, int left, int mid, int right)
     {
         int i = left;
@@ -76,21 +90,8 @@ public class MergeFunctions
         }
         return array;
     }
-
-    //Original mergeSort
-    
-    public void mergeSort(int[] array, int left, int right)
-    {
-        if(left < right)
-        {
-            int mid = (left + right)/2;
-            mergeSort(array, left, mid);
-            mergeSort(array, mid + 1, right);
-            merge(array, left, mid, right);
-        }
-
-    }
-
+    */
+    /*
     public void newMergeSort(int[] array, int[] temp, int left, int right)
     {
         if(left < right)
@@ -102,4 +103,5 @@ public class MergeFunctions
         }
 
     }
+    */
 }
