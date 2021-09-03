@@ -8,7 +8,7 @@ public class MergeFunctions
     {
         if(p < r)
         {
-            int q = (p + r)/2;
+            int q = ((p + r)/2);
             mergeSort(A, p, q);
             mergeSort(A, q + 1, r);
             merge(A, p, q, r);
@@ -25,13 +25,12 @@ public class MergeFunctions
         int[] L = new int[n1];
         int[] R = new int[n2];
 
-        for(int i = 1; i < n1; i++)
+        for(int i = 0; i < n1; i++)
         {
-            L[i] = A[p + i - 1];
-            
+            L[i] = A[p + i];
         }
 
-        for(int j = 1; j < n2; j++)
+        for(int j = 0; j < n2; j++)
         {
             R[j] = A[q + j];
         }
