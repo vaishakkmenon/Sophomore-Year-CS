@@ -1,5 +1,5 @@
-build: nprimes.c
-	gcc -Wall -g nprimes.c -o nprimes -lm
+build: asgn2.c
+	gcc -Wall -g asgn2.c -o asgn2 -lm
 
 run:
-	./nprimes
+	./asgn2
