@@ -34,10 +34,16 @@ public class MergeDriver
             tempArray[x] = array_100[x];
         }
 
+        Scanner sc2 = new Scanner(System.in);
+        System.out.println("Enter smallest array size for insertion sort: ");
+        int min = sc2.nextInt();
+        sc2.close();
+
         long sTime_100 = System.nanoTime();
-        mFun.mergeSort(array_100, tempArray,0, array_100.length-1);
+        mFun.mergeSort(array_100, tempArray,0, array_100.length-1, min);
         long eTime_100 = System.nanoTime() - sTime_100;
         System.out.println("Time taken to merge sort array of 100 numbers: " + eTime_100);
+        
         
         File f2 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab3\\input_1000.txt");
         int[] array_1000 = new int[]{};
@@ -64,7 +70,7 @@ public class MergeDriver
         }
 
         long sTime_1000 = System.nanoTime();
-        mFun.mergeSort(array_1000, tempArray,0, array_1000.length-1);
+        mFun.mergeSort(array_1000, tempArray,0, array_1000.length-1,min);
         long eTime_1000 = System.nanoTime() - sTime_1000;
         System.out.println("Time taken to merge sort array of 1000 numbers: " + eTime_1000);
 
@@ -93,7 +99,7 @@ public class MergeDriver
         }
 
         long sTime_5000 = System.nanoTime();
-        mFun.mergeSort(array_5000, tempArray,0, array_5000.length-1);
+        mFun.mergeSort(array_5000, tempArray,0, array_5000.length-1,min);
         long eTime_5000 = System.nanoTime() - sTime_5000;
         System.out.println("Time taken to merge sort array of 5000 numbers: " + eTime_5000);
 
@@ -122,7 +128,7 @@ public class MergeDriver
         }
 
         long sTime_10000 = System.nanoTime();
-        mFun.mergeSort(array_10000, tempArray,0, array_10000.length-1);
+        mFun.mergeSort(array_10000, tempArray,0, array_10000.length-1,min);
         long eTime_10000 = System.nanoTime() - sTime_10000;
         System.out.println("Time taken to merge sort array of 10000 numbers: " + eTime_10000);
 
@@ -151,7 +157,7 @@ public class MergeDriver
         }
 
         long sTime_50000 = System.nanoTime();
-        mFun.mergeSort(array_50000, tempArray,0, array_50000.length-1);
+        mFun.mergeSort(array_50000, tempArray,0, array_50000.length-1,min);
         long eTime_50000 = System.nanoTime() - sTime_50000;
         System.out.println("Time taken to merge sort array of 50000 numbers: " + eTime_50000);
 
@@ -180,7 +186,7 @@ public class MergeDriver
         }
 
         long sTime_100000 = System.nanoTime();
-        mFun.mergeSort(array_100000, tempArray,0, array_100000.length-1);
+        mFun.mergeSort(array_100000, tempArray,0, array_100000.length-1,min);
         long eTime_100000 = System.nanoTime() - sTime_100000;
         System.out.println("Time taken to merge sort array of 100000 numbers: " + eTime_100000);
 
@@ -209,8 +215,9 @@ public class MergeDriver
         }
 
         long sTime_500000 = System.nanoTime();
-        mFun.mergeSort(array_500000, tempArray,0, array_500000.length-1);
+        mFun.mergeSort(array_500000, tempArray,0, array_500000.length-1,min);
         long eTime_500000 = System.nanoTime() - sTime_500000;
         System.out.println("Time taken to merge sort array of 500000 numbers: " + eTime_500000);
+        
     }    
 }
