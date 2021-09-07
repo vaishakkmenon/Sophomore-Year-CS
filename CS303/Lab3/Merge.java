@@ -1,3 +1,4 @@
+/* Author: Vaishak Menon, Date: 09/07/2021*/
 package CS303.Lab3;
 
 public class Merge 
@@ -9,7 +10,8 @@ public class Merge
         {
             int i = 0;
             int key = 0;
-            for (int j = 1; j < A.length; j++)
+            int length = A.length;
+            for (int j = 1; j < length; j++)
             {
                 key = A[j];
                 i = j - 1;

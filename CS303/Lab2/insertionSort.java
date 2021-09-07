@@ -1,3 +1,4 @@
+/* Author: Vaishak Menon, Date: 09/07/2021*/
 package CS303.Lab2;
 
 public class insertionSort
@@ -6,7 +7,8 @@ public class insertionSort
     {
         int i = 0;
         int key = 0;
-        for (int j = 1; j < array.length; j++)
+        int length = array.length;
+        for (int j = 1; j < length; j++)
         {
             key = array[j];
             i = j - 1;

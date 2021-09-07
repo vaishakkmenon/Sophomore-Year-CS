@@ -1,3 +1,4 @@
+/* Author: Vaishak Menon, Date: 09/07/2021 */
 package CS303.Lab2;
 
 import java.io.File;
@@ -31,13 +32,13 @@ public class sortDriver
         int[] input_500000 = new int[]{};
         String[] sArray7 = new String[]{};
 
-        File f1 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab2\\input_100.txt");
-        File f2 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab2\\input_1000.txt");
-        File f3 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab2\\input_5000.txt");
-        File f4 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab2\\input_10000.txt");
-        File f5 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab2\\input_50000.txt");
-        File f6 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab2\\input_100000.txt");
-        File f7 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab2\\input_500000.txt");
+        File f1 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_100.txt");
+        File f2 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_1000.txt");
+        File f3 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_5000.txt");
+        File f4 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_10000.txt");
+        File f5 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_50000.txt");
+        File f6 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_100000.txt");
+        File f7 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_500000.txt");
 
 
         try 

@@ -1,3 +1,4 @@
+/* Author: Vaishak Menon, Date: 09/07/2021*/
 package CS303.Lab3;
 
 import java.io.File;
@@ -8,7 +9,7 @@ public class MergeDriver
 {
     public static void main(String[] args)
     {
-        File f1 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab3\\input_100.txt");
+        File f1 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_100.txt");
         Merge mFun = new Merge();
         int[] array_100 = new int[]{};
 
@@ -17,7 +18,8 @@ public class MergeDriver
             Scanner sc = new Scanner(f1);
             String[] sArray = sc.nextLine().trim().split(" ");
             array_100 = new int[sArray.length];
-            for(int i = 0; i < sArray.length; i++)
+            int sLength = sArray.length;
+            for(int i = 0; i < sLength; i++)
             {
                 array_100[i] = Integer.parseInt(sArray[i]);
             }
@@ -45,14 +47,15 @@ public class MergeDriver
         System.out.println("Time taken to merge sort array of 100 numbers: " + eTime_100);
         
         
-        File f2 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab3\\input_1000.txt");
+        File f2 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_1000.txt");
         int[] array_1000 = new int[]{};
         try
         {
             Scanner sc = new Scanner(f2);
             String[] sArray = sc.nextLine().trim().split(" ");
             array_1000 = new int[sArray.length];
-            for(int i = 0; i < sArray.length; i++)
+            int sLength = sArray.length;
+            for(int i = 0; i < sLength; i++)
             {
                 array_1000[i] = Integer.parseInt(sArray[i]);
             }
@@ -74,14 +77,15 @@ public class MergeDriver
         long eTime_1000 = System.nanoTime() - sTime_1000;
         System.out.println("Time taken to merge sort array of 1000 numbers: " + eTime_1000);
 
-        File f3 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab3\\input_5000.txt");
+        File f3 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_5000.txt");
         int[] array_5000 = new int[]{};
         try
         {
             Scanner sc = new Scanner(f3);
             String[] sArray = sc.nextLine().trim().split(" ");
             array_5000 = new int[sArray.length];
-            for(int i = 0; i < sArray.length; i++)
+            int sLength = sArray.length;
+            for(int i = 0; i < sLength; i++)
             {
                 array_5000[i] = Integer.parseInt(sArray[i]);
             }
@@ -103,14 +107,15 @@ public class MergeDriver
         long eTime_5000 = System.nanoTime() - sTime_5000;
         System.out.println("Time taken to merge sort array of 5000 numbers: " + eTime_5000);
 
-        File f4 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab3\\input_10000.txt");
+        File f4 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_10000.txt");
         int[] array_10000 = new int[]{};
         try
         {
             Scanner sc = new Scanner(f4);
             String[] sArray = sc.nextLine().trim().split(" ");
             array_10000 = new int[sArray.length];
-            for(int i = 0; i < sArray.length; i++)
+            int sLength = sArray.length;
+            for(int i = 0; i < sLength; i++)
             {
                 array_10000[i] = Integer.parseInt(sArray[i]);
             }
@@ -132,14 +137,15 @@ public class MergeDriver
         long eTime_10000 = System.nanoTime() - sTime_10000;
         System.out.println("Time taken to merge sort array of 10000 numbers: " + eTime_10000);
 
-        File f5 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab3\\input_50000.txt");
+        File f5 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_50000.txt");
         int[] array_50000 = new int[]{};
         try
         {
             Scanner sc = new Scanner(f5);
             String[] sArray = sc.nextLine().trim().split(" ");
             array_50000 = new int[sArray.length];
-            for(int i = 0; i < sArray.length; i++)
+            int sLength = sArray.length;
+            for(int i = 0; i < sLength; i++)
             {
                 array_50000[i] = Integer.parseInt(sArray[i]);
             }
@@ -161,14 +167,15 @@ public class MergeDriver
         long eTime_50000 = System.nanoTime() - sTime_50000;
         System.out.println("Time taken to merge sort array of 50000 numbers: " + eTime_50000);
 
-        File f6 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab3\\input_100000.txt");
+        File f6 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_100000.txt");
         int[] array_100000 = new int[]{};
         try
         {
             Scanner sc = new Scanner(f6);
             String[] sArray = sc.nextLine().trim().split(" ");
             array_100000 = new int[sArray.length];
-            for(int i = 0; i < sArray.length; i++)
+            int sLength = sArray.length;
+            for(int i = 0; i < sLength; i++)
             {
                 array_100000[i] = Integer.parseInt(sArray[i]);
             }
@@ -190,14 +197,15 @@ public class MergeDriver
         long eTime_100000 = System.nanoTime() - sTime_100000;
         System.out.println("Time taken to merge sort array of 100000 numbers: " + eTime_100000);
 
-        File f7 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab3\\input_500000.txt");
+        File f7 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_500000.txt");
         int[] array_500000 = new int[]{};
         try
         {
             Scanner sc = new Scanner(f7);
             String[] sArray = sc.nextLine().trim().split(" ");
             array_500000 = new int[sArray.length];
-            for(int i = 0; i < sArray.length; i++)
+            int sLength = sArray.length;
+            for(int i = 0; i < sLength; i++)
             {
                 array_500000[i] = Integer.parseInt(sArray[i]);
             }
