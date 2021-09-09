@@ -32,13 +32,13 @@ public class sortDriver
         int[] input_500000 = new int[]{};
         String[] sArray7 = new String[]{};
 
-        File f1 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_100.txt");
-        File f2 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_1000.txt");
-        File f3 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_5000.txt");
-        File f4 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_10000.txt");
-        File f5 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_50000.txt");
-        File f6 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_100000.txt");
-        File f7 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_500000.txt");
+        File f1 = new File("input_100.txt");
+        File f2 = new File("input_1000.txt");
+        File f3 = new File("input_5000.txt");
+        File f4 = new File("input_10000.txt");
+        File f5 = new File("input_50000.txt");
+        File f6 = new File("input_100000.txt");
+        File f7 = new File("input_500000.txt");
 
 
         try 

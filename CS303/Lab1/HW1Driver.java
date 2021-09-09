@@ -14,7 +14,7 @@ public class HW1Driver
         int startNum = 16;
         int[] nArray = new int[]{};
         int[] randNumArray = new int[1000];
-        File f1 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\Lab1\\random_numbers.txt");
+        File f1 = new File("random_numbers.txt");
         SearchFunctions sf = new SearchFunctions();
         
         try 

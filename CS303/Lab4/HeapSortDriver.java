@@ -8,7 +8,7 @@ public class HeapSortDriver
 {
     public static void main(String[] args)
     {
-        File f1 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_100.txt");
+        File f1 = new File("input_100.txt");
         HeapSort hp = new HeapSort();
         int[] array_100 = new int[]{};
 
@@ -35,7 +35,7 @@ public class HeapSortDriver
         System.out.println("Time taken to heapsort array of 100 numbers: " + eTime_100);
         
         
-        File f2 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_1000.txt");
+        File f2 = new File("input_1000.txt");
         int[] array_1000 = new int[]{};
         try
         {
@@ -59,7 +59,7 @@ public class HeapSortDriver
         long eTime_1000 = System.nanoTime() - sTime_1000;
         System.out.println("Time taken to heapsort array of 1000 numbers: " + eTime_1000);
 
-        File f3 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_5000.txt");
+        File f3 = new File("input_5000.txt");
         int[] array_5000 = new int[]{};
         try
         {
@@ -83,7 +83,7 @@ public class HeapSortDriver
         long eTime_5000 = System.nanoTime() - sTime_5000;
         System.out.println("Time taken to heapsort array of 5000 numbers: " + eTime_5000);
 
-        File f4 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_10000.txt");
+        File f4 = new File("input_10000.txt");
         int[] array_10000 = new int[]{};
         try
         {
@@ -107,7 +107,7 @@ public class HeapSortDriver
         long eTime_10000 = System.nanoTime() - sTime_10000;
         System.out.println("Time taken to heapsort array of 10000 numbers: " + eTime_10000);
 
-        File f5 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_50000.txt");
+        File f5 = new File("input_50000.txt");
         int[] array_50000 = new int[]{};
         try
         {
@@ -131,7 +131,7 @@ public class HeapSortDriver
         long eTime_50000 = System.nanoTime() - sTime_50000;
         System.out.println("Time taken to heapsort array of 50000 numbers: " + eTime_50000);
 
-        File f6 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_100000.txt");
+        File f6 = new File("input_100000.txt");
         int[] array_100000 = new int[]{};
         try
         {
@@ -155,7 +155,7 @@ public class HeapSortDriver
         long eTime_100000 = System.nanoTime() - sTime_100000;
         System.out.println("Time taken to heapsort array of 100000 numbers: " + eTime_100000);
 
-        File f7 = new File("C:\\Users\\vaish\\SophYearCS\\CS303\\input_files\\input_500000.txt");
+        File f7 = new File("input_500000.txt");
         int[] array_500000 = new int[]{};
         try
         {
