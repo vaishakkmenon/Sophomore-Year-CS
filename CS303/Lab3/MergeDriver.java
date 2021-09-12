@@ -1,4 +1,4 @@
-/* Author: Vaishak Menon, Date: 09/07/2021*/
+/* Author: Vaishak Menon, Date: 09/07/2021 */
 package CS303.Lab3;
 
 import java.io.File;
