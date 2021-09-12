@@ -24,20 +24,22 @@ public class Merge
             }
 
         }
-
-        int q;
-        if(p < r)
+        else
         {
-            q = (p + r) / 2;
-            mergeSort(A,temp,p,q,min);
-            mergeSort(A,temp,q+1,r,min);
-            merge(A,temp,p,q,r);
+            int q;
+            if(p < r)
+            {
+                q = (int) Math.floor((p + r) / 2);
+                mergeSort(A,temp,p,q,min);
+                mergeSort(A,temp,q+1,r,min);
+                merge(A,temp,p,q,r);
+            }
         }
     }
 
-    int i , j;
     public void merge(int[] A, int[] temp, int p, int q, int r)
     {
+        int i, j;
         i = p;
         j = q + 1;
 
