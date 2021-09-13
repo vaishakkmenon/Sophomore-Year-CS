@@ -52,19 +52,13 @@ void introToCS330(int n)
 
     //Checks divisibility against 3 AND 7
     if(n % 3 == 0 && n % 7 == 0)
-    {
         printf("UAB CS 330");
-    }
     //Checks divisibility for just 3
     else if(n % 3 == 0)
-    {
         printf("CS");
-    }
     //Checks divisibility for just 7
     else if(n % 7 == 0)
-    {
         printf("UAB");
-    }
     //Prints cube if all else fails
     else
     {
