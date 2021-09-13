@@ -91,7 +91,7 @@ void printHello(int n)
     }
 }
 
-void paintGallons(float l, float w, float h)
+int paintGallons(float l, float w, float h)
 {
     
     const float perGallon = 400;
@@ -105,7 +105,8 @@ void paintGallons(float l, float w, float h)
 
     //Finds maximum cans needed to paint entire room
     float cansNeeded = ceil(total / perGallon);
-    printf("%f",cansNeeded);
+    
+    return cansNeeded;
 }
 
 void grader(float aGrade, float aHW, int attendance)
@@ -177,22 +178,22 @@ int main()
 
     //paintGallons()
     printf("Enter an input numbers for paintGallons: \n");
-    printf("Length: ");
+    printf("Length: \n");
     scanf("%f", &l);
-    printf("\nWidth: ");
+    printf("Width: \n");
     scanf("%f", &w);
-    printf("\nHeight: ");
+    printf("Height: \n");
     scanf("%f", &h);
-    paintGallons(l, w, h);
-    printf("\n");
+    int result = paintGallons(l, w, h);
+    printf("\n%d Gallons\n",result);
 
     //grader()
     printf("Enter an input numbers for grader: \n");
-    printf("Average Grade: ");
+    printf("Average Grade: \n");
     scanf("%f", &g);
-    printf("\nAverage HW: ");
+    printf("Average HW: \n");
     scanf("%f", &h);
-    printf("\nAttendance: ");
+    printf("Attendance: \n");
     scanf("%d", &n);
     grader(g, h, n);
     printf("\n");
