@@ -1,17 +1,17 @@
 package CS303.Lab4;
 
-public class HeapSort 
+public class HeapSort
 {
     public int[] sort(int[] A)
     {
         int n = A.length-1;
 
-        for(int i = n/2; i >= 0; i--)
+        for(int i = n/2; i >= 1; i--)
         {
             maxHeapify(A, n, i);
         }
 
-        for (int i = n; i > 0; i--) 
+        for (int i = n; i > 1; i--) 
         {
             int temp = A[0];
             A[0] = A[i];
