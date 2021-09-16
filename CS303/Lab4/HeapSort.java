@@ -1,48 +1,52 @@
 package CS303.Lab4;
 
-public class HeapSort
+public class HeapSort 
 {
-    public int[] sort(int[] A)
+    public void sort(int[] A)
     {
-        int n = A.length-1;
-
-        for(int i = n/2; i >= 1; i--)
+        buildMaxHeap(A);
+        for(int i = A.length-1; i >= 2; i--)
         {
-            maxHeapify(A, n, i);
-        }
 
-        for (int i = n; i > 1; i--) 
-        {
-            int temp = A[0];
-            A[0] = A[i];
+            int temp = A[1];
+            A[1] = A[i];
             A[i] = temp;
-            maxHeapify(A, i, 0);
-        }
 
-        return A;
+            maxHeapify(A , 1);
+
+        }
+    }
+    
+    public void buildMaxHeap(int[] A)
+    {
+        int size = A.length-1;
+        for(int i = size/2; i >= 1; i--)
+        {
+            maxHeapify(A, i);
+        }
     }
 
-    
-    public void maxHeapify(int[] A, int n, int i)
+    public void maxHeapify(int[] A, int i)
     {
-        int largest = i;
+        int largest = 0;
+        int size = A.length-1;
         int l = 2 * i + 1;
         int r = 2 * i + 2;
-        
-        if(l < n &&  A[l] > A[largest])
+
+        if(l <= size && A[l] > A[i])
             largest = l;
+        else
+            largest = i;
 
-        if(r < n &&  A[r] > A[largest])
+        if(r <= size && A[r] > A[largest])
             largest = r;
-
+        
         if(largest != i)
         {
             int temp = A[i];
             A[i] = A[largest];
             A[largest] = temp;
-            maxHeapify(A,n,largest);
+            maxHeapify(A, largest);
         }
-
     }
-    
 }
