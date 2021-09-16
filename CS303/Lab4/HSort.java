@@ -7,13 +7,11 @@ public class HSort
         buildMaxHeap(A);
         for(int i = A.length-1; i >= 2; i--)
         {
-            int size = A.length-1;
 
             int temp = A[1];
             A[1] = A[i];
             A[i] = temp;
 
-            size -= 1;
             maxHeapify(A , 1);
 
         }
