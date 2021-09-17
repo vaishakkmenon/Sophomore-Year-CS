@@ -30,8 +30,8 @@ public class HeapSort
     {
         int largest = 0;
         int size = A.length-1;
-        int l = 2 * i + 1;
-        int r = 2 * i + 2;
+        int l = Left(i);
+        int r = Right(i);
 
         if(l <= size && A[l] > A[i])
             largest = l;
@@ -48,5 +48,15 @@ public class HeapSort
             A[largest] = temp;
             maxHeapify(A, largest);
         }
+    }
+
+    public int Left(int i)
+    {
+        return 2 * i + 1;
+    }
+
+    public int Right(int i)
+    {
+        return 2 * i + 2;
     }
 }
