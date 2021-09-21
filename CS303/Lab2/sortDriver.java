@@ -46,6 +46,10 @@ public class sortDriver
             Scanner sc = new Scanner(f1);
             sArray = sc.nextLine().trim().split(" ");
             input_100 = new int[sArray.length];
+            for(int i = 0; i < input_100.length; i++)
+            {
+                input_100[i] = Integer.valueOf(sArray[i]);
+            }
             sc.close();
         } 
         catch (FileNotFoundException e) 
@@ -58,6 +62,10 @@ public class sortDriver
             Scanner sc = new Scanner(f2);
             sArray2 = sc.nextLine().trim().split(" ");
             input_1000 = new int[sArray2.length];
+            for(int i = 0; i < input_1000.length; i++)
+            {
+                input_1000[i] = Integer.valueOf(sArray2[i]);
+            }
             sc.close();
         } 
         catch (FileNotFoundException e) 
@@ -70,6 +78,10 @@ public class sortDriver
             Scanner sc = new Scanner(f3);
             sArray3 = sc.nextLine().trim().split(" ");
             input_5000 = new int[sArray3.length];
+            for(int i = 0; i < input_5000.length; i++)
+            {
+                input_5000[i] = Integer.valueOf(sArray3[i]);
+            }
             sc.close();
         } 
         catch (FileNotFoundException e) 
@@ -82,6 +94,10 @@ public class sortDriver
             Scanner sc = new Scanner(f4);
             sArray4 = sc.nextLine().trim().split(" ");
             input_10000 = new int[sArray4.length];
+            for(int i = 0; i < input_10000.length; i++)
+            {
+                input_10000[i] = Integer.valueOf(sArray4[i]);
+            }
             sc.close();
         } 
         catch (FileNotFoundException e) 
@@ -94,6 +110,10 @@ public class sortDriver
             Scanner sc = new Scanner(f5);
             sArray5 = sc.nextLine().trim().split(" ");
             input_50000 = new int[sArray5.length];
+            for(int i = 0; i < input_50000.length; i++)
+            {
+                input_50000[i] = Integer.valueOf(sArray5[i]);
+            }
             sc.close();
         } 
         catch (FileNotFoundException e) 
@@ -106,6 +126,10 @@ public class sortDriver
             Scanner sc = new Scanner(f6);
             sArray6 = sc.nextLine().trim().split(" ");
             input_100000 = new int[sArray6.length];
+            for(int i = 0; i < input_100000.length; i++)
+            {
+                input_100000[i] = Integer.valueOf(sArray6[i]);
+            }
             sc.close();
         } 
         catch (FileNotFoundException e) 
@@ -118,6 +142,10 @@ public class sortDriver
             Scanner sc = new Scanner(f7);
             sArray7 = sc.nextLine().trim().split(" ");
             input_500000 = new int[sArray7.length];
+            for(int i = 0; i < input_500000.length; i++)
+            {
+                input_500000[i] = Integer.valueOf(sArray7[i]);
+            }
             sc.close();
         } 
         catch (FileNotFoundException e) 
