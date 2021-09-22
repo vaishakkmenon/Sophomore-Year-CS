@@ -1,0 +1,29 @@
+        /*
+        int[] nums = {A[i], A[j], A[k]};
+
+        int x = 0;
+        int key = 0;
+        int length = nums.length;
+        for (int y = 1; y < length; y++)
+        {
+            key = nums[y];
+            x = y - 1;
+            while(x >= 0 && nums[x] > key)
+            {
+                nums[x + 1] = nums[x];
+                x--;
+            }
+            nums[x + 1] = key;
+        }
+
+        int index = 0;
+        for (int a = 0; a < A.length; a++)
+        {
+            if(nums[1] == A[a])
+            {
+                index = a;
+            }
+        }
+        
+        return index;
+        */
