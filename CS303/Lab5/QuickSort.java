@@ -1,3 +1,5 @@
+/* Author: Vaishak Menon, Date: 09/22/2021 */
+
 package CS303.Lab5;
 
 public class QuickSort 
