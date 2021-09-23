@@ -3,7 +3,7 @@ package CS303.Lab5;
 
 public class InsertionSort
 {
-    public int[] iSort(int[] array)
+    public void iSort(int[] array)
     {
         int i = 0;
         int key = 0;
@@ -20,6 +20,5 @@ public class InsertionSort
             array[i + 1] = key;
         }
 
-        return array;
     }
 }
