@@ -3,10 +3,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-void insertionSort(int *A)
+void insertionSort(int *A, int size)
 {
     int i, key;
-    for(i = 0; i < 100; i++)
+    for(i = 0; i < size; i++)
     {
         key = *(A + i);
         int j = i - 1;
@@ -68,8 +68,7 @@ int main()
         i++;
     }    
 
-    insertionSort(ptr);
-
+    insertionSort(ptr, arraySize);
     selectionSort(ptr2, arraySize);
 
     return 0;
