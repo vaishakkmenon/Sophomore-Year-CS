@@ -85,8 +85,9 @@ int main()
     }    
 
     //Call both functions on the arrays
+    //I passed the size in because the pointer size always ends up as 2 and stops my code from working
     insertionSort(ptr, arraySize);
-    selectionSort(ptr2, arraySize);
+    selectionSort(ptr2, arraySize);.
 
     return 0;
 }

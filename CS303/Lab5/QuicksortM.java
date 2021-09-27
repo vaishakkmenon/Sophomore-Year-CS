@@ -24,7 +24,6 @@ public class QuicksortM
     public static int median(int[] A, int i, int j, int k)
     {
 
-        //Original way of finding the median
         if((A[i] <= A[j] && A[j] <= A[k]) || (A[k] <= A[j] && A[j] <= A[i]))
         {
             return j;

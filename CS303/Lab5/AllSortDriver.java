@@ -27,14 +27,14 @@ public class AllSortDriver
         {
             Scanner sc = new Scanner(f);
             String[] sArray = sc.nextLine().trim().split(" ");
-
-            iArray = new int[sArray.length];
-            mArray = new int[sArray.length];
-            hArray = new int[sArray.length];
-            qsArray = new int[sArray.length];
-            qmArray = new int[sArray.length];
-
             int sLength = sArray.length;
+
+            iArray = new int[sLength];
+            mArray = new int[sLength];
+            hArray = new int[sLength];
+            qsArray = new int[sLength];
+            qmArray = new int[sLength];
+
             for(int i = 0; i < sLength; i++)
             {
                 iArray[i] = Integer.parseInt(sArray[i]);
