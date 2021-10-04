@@ -37,7 +37,7 @@ public class NovelDriver
         File f = new File("input_100.txt");
         updateArray(f);
         int[] sorted = ns.sort(array);
-        for(int i:sorted)
+        for(int i : sorted)
         {
             System.out.print(i + " ");
         }

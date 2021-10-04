@@ -11,7 +11,7 @@ void insertionSort(int *A, int size)
     for(i = 0; i < size; i++)
     {
         //Assign key to be whatever value A[i] is
-        key = *(A + i);
+        key = *(A + i) A[i];
         int j = i - 1;
         while(j >= 0 && key < *(A + j))
         {
