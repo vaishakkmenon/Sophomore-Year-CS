@@ -3,49 +3,36 @@
 #include <stdlib.h>
 #include <string.h>
 
-//Insertion Sort algorithm
 void insertionSort(int *A, int size)
 {
-    //Declare both i and key
     int i, key;
     for(i = 0; i < size; i++)
     {
-        //Assign key to be whatever value A[i] is
-        key = *(A + i) A[i];
+        key = *(A + i);
         int j = i - 1;
         while(j >= 0 && key < *(A + j))
         {
-            //if(j is greater that zero and the key is less than A[j])
-            //switch A[j+1] with A[j]
             *(A + (j + 1)) = *(A+ j);
             j -= 1;
         }
-        //Make A[j+1] equal to the key
         *(A + (j + 1)) = key;
     }
 }
 
-//Selection Sort Algorithm
 void selectionSort(int *nums,int size)
 {
-    //Declare i and minValueIndex
     int i, minValueIndex;
     for(i = 0; i < size-1; i++)
     {
-        //Set minValueIndex to i
         minValueIndex = i;
         int j;
         for(j = i + 1; j < size; j++)
         {
-            //if(nums[j]) is less than nums[minValueIndex]
-            //set minValueIndex to j
             if(*(nums + j) < *(nums + minValueIndex))
             {
                 minValueIndex = j;
             }
         }
-        //If minValueIndex is not equal to i
-        //switch i with minValueIndex
         if(minValueIndex != i)
         {
             int temp = *(nums + i);
@@ -57,8 +44,7 @@ void selectionSort(int *nums,int size)
 
 int main()
 {
-    //Declare nad initialize all variables and pointers
-    FILE numF;
+    FILE *numF;
     int size = 290;
     char nums[size];
     int arraySize = 100;
@@ -67,14 +53,12 @@ int main()
     int *ptr = fileNum;
     int *ptr2 = fileNum2;
 
-    //Read in file with random numbers
     numF = fopen("input_100.txt", "r");
-    fgets(nums, 290, numF);
+    fgets(nums,290,numF);
     fclose(numF);
 
     char *token = strtok(nums, " ");
 
-    //Add all integers into the arrays
     int i = 0;
     while(token != NULL)
     {
@@ -84,10 +68,38 @@ int main()
         i++;
     }    
 
-    //Call both functions on the arrays
-    //I passed the size in because the pointer size always ends up as 2 and stops my code from working
+    printf("Unsorted Insertion Sort Array: \n");
+    int a;
+    for(a = 0; a < arraySize; a++)
+    {
+        printf("%d ",fileNum[a]);
+    }
+
     insertionSort(ptr, arraySize);
-    selectionSort(ptr2, arraySize);.
+    
+    printf("\nSorted Insertion Sort Array: \n");
+    int b;
+    for(b = 0; b < arraySize; b++)
+    {
+        printf("%d ",fileNum[b]);
+    }
+    printf("\n\n");
+
+    printf("Unsorted Selection Sort Array: \n");
+    int c;
+    for(c = 0; c < arraySize; c++)
+    {
+        printf("%d ",fileNum2[c]);
+    }
+    selectionSort(ptr2, arraySize);
+
+    printf("\nSorted Selection Sort Array:\n");
+    int d;
+    for(d = 0; d < arraySize; d++)
+    {
+        printf("%d ",fileNum2[d]);
+    }
+    printf("\n");
 
     return 0;
 }
