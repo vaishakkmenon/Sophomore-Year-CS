@@ -9,6 +9,9 @@ public class LogDriver
 {
     public static void main(String[] args)
     {
+
+        LogSort ls= new LogSort();
+
         File f = new File("NovelSortInput.txt");
         ArrayList<String> cities = new ArrayList<String>();
         ArrayList<Integer> times = new ArrayList<Integer>();
@@ -18,12 +21,12 @@ public class LogDriver
             Scanner sc = new Scanner(f);
             while (sc.hasNextLine()) 
             {
-                String[] logs = sc.nextLine().trim().split(" ");
-                String city = logs[0];
+                String[] log = sc.nextLine().trim().split(" ");
+                String city = log[0];
                 String time = "";
-                if (!(logs[0].isEmpty())) 
+                if (!(log[0].isEmpty())) 
                 {
-                    time = logs[1];
+                    time = log[1];
                     String[] timeSplit = time.split(":");
                     String s = "";
                     for (int i = 0; i < timeSplit.length; i++) 
@@ -42,15 +45,7 @@ public class LogDriver
             e.printStackTrace();
         }
 
-        for(int a = 0; a < cities.size(); a++)
-        {
-            System.out.println(cities.get(a));
-        }
-
-        for(int b = 0; b < times.size(); b++)
-        {
-            System.out.println(times.get(b));
-        }
+        ls.sort(cities, 0, cities.size()-1);
 
     }
 }
