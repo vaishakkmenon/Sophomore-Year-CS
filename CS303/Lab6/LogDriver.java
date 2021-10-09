@@ -81,7 +81,7 @@ public class LogDriver {
         System.out.println();
         for (String x : newTimes) {System.out.print(x + " ");}
 
-        ls.iSort(cities, times);
+        ls.sort(cities, times);
         newTimes = ls.convert(times);
 
         System.out.println();

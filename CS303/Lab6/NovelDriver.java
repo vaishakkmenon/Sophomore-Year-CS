@@ -33,10 +33,10 @@ public class NovelDriver
     public static void main(String[] args)
     {
         NovelSwap ns = new NovelSwap();
-        System.out.println("100 Elements: ");
-        
         File f = new File("input_100.txt");
         updateArray(f);
+
+        System.out.println(array.length + " Elements: ");
         long iTime = System.nanoTime();
         ns.sort(array);
         long eiTime = System.nanoTime() - iTime;
@@ -46,6 +46,15 @@ public class NovelDriver
         {
             System.out.print(i + " ");
         }
+
+        File f2 = new File("input_1000.txt");
+        updateArray(f2);
+
+        System.out.println("\n" + array.length + " Elements: ");
+        long iTime2 = System.nanoTime();
+        ns.sort(array);
+        long eiTime2 = System.nanoTime() - iTime2;
+        System.out.println("Time taken to novel sort + insertion sort array of " + array.length + " numbers: " + eiTime2);
 
     }    
 }

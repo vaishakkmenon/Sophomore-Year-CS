@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class LogSort 
 {
-    public void iSort(ArrayList<String> A, ArrayList<Integer> B)
+    public void sort(ArrayList<String> A, ArrayList<Integer> B)
     {
         int i = 0;
         String key = "";
