@@ -6,7 +6,7 @@
 void insertionSort(int *A, int size)
 {
     int i, key;
-    for(i = 0; i < size; i++)
+    for(i = 1; i < size; i++)
     {
         key = *(A + i);
         int j = i - 1;
