@@ -36,12 +36,19 @@ public class NovelDriver
         File f = new File("input_100.txt");
         updateArray(f);
 
-        System.out.println(array.length + " Elements: ");
+        System.out.println("Before Sorting: ");
+        for(int i : array)
+        {
+            System.out.print(i + " ");
+        }
+
+        System.out.println("\n" + array.length + " Elements: ");
         long iTime = System.nanoTime();
         ns.sort(array);
         long eiTime = System.nanoTime() - iTime;
         System.out.println("Time taken to novel sort + insertion sort array of " + array.length + " numbers: " + eiTime);
 
+        System.out.println("After Sorting: ");
         for(int i : array)
         {
             System.out.print(i + " ");
@@ -55,6 +62,5 @@ public class NovelDriver
         ns.sort(array);
         long eiTime2 = System.nanoTime() - iTime2;
         System.out.println("Time taken to novel sort + insertion sort array of " + array.length + " numbers: " + eiTime2);
-
     }    
 }

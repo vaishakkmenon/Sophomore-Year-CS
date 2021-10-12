@@ -7,7 +7,7 @@ public class NovelSwap {
     {
         int smallest = A[a], largest = A[b], sIndex = a, lIndex = b;
 
-        for (int i = a; i < b; i++) 
+        for (int i = a; i < b+1; i++) 
         {
             if (A[i] <= smallest) 
             {
@@ -35,47 +35,39 @@ public class NovelSwap {
 
     public void sort(int[] A) 
     {
-        int i = 0, j = A.length;
+        int i = 0, j = A.length-1;
 
         while (j - i > 0) 
         {
-            findSmallLarge(A, i, j-1);
+            findSmallLarge(A, i, j);
 
             int sIndex = nums[0];
             int lIndex = nums[1];
 
-            if(i == lIndex)
+            if(i == lIndex && j == sIndex)
             {
-                swap(A, j-1, lIndex);
                 swap(A, i, sIndex);
+            }
+            else if(i == lIndex)
+            {
+                swap(A, j, lIndex);
+                swap(A, i, sIndex);
+            }
+            else if(j == sIndex)
+            {
+                swap(A, i, sIndex);
+                i--;
+                j++;
             }
             else
             {
                 swap(A, i, sIndex);
-                swap(A, j-1, lIndex);
+                swap(A, j, lIndex);
             }
             
             i++;
             j--;
-        }
 
-        if (A.length % 2 == 0 & i == A.length / 2) 
-        {
-            int a = 0;
-            int key = A[A.length / 2];
-            int length = A.length;
-            
-            for (int k = 1; k < length; k++) 
-            {
-                key = A[k];
-                a = k - 1;
-                while (a >= 0 && A[a] > key) 
-                {
-                    A[a + 1] = A[a];
-                    a--;
-                }
-                A[a + 1] = key;
-            }
         }
     }
 }
