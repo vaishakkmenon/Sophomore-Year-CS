@@ -1,4 +1,6 @@
 /* Author: Vaishak Menon, Date: 09/22/2021 */
+package CS303.Lab7;
+
 
 public class Merge 
 {
@@ -37,7 +39,7 @@ public class Merge
                 A[k] = temp[i];
                 i++;
             }
-            else if(temp[j] < temp[i])
+            else if(temp[j] > temp[i])
             {
                 A[k] = temp[j];
                 j++;

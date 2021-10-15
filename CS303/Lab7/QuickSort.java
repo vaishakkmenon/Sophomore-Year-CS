@@ -1,4 +1,6 @@
 /* Author: Vaishak Menon, Date: 09/22/2021 */
+package CS303.Lab7;
+
 
 public class QuickSort 
 {
@@ -19,7 +21,7 @@ public class QuickSort
 
         for(int j = p; j <= r - 1; j++)
         {
-            if(A[j] <= x)
+            if(A[j] >= x)
             {
                 i++;
                 int temp = A[i];

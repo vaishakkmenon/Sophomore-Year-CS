@@ -1,5 +1,9 @@
+package CS303.Lab7;
+
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Lab7Driver 
@@ -70,7 +74,7 @@ public class Lab7Driver
         ms.mergeSort(mArray, tempArray, 0, mArray.length-1);
         long emTime = System.nanoTime() - mTime;
         System.out.println("Time taken to merge sort array of " + size + " numbers: " + emTime);
-
+        
         long hTime = System.nanoTime();
         hp.sort(hArray);
         long ehTime = System.nanoTime() - hTime;
@@ -93,64 +97,37 @@ public class Lab7Driver
     }
     public static void main(String[] args)
     {
-        File f = new File("Input_Random.txt");
-        File f2 = new File("Input_ReversedSorted.txt");
-        File f3 = new File("Input_Sorted.txt");
+        NumberGenerator ng = new NumberGenerator();
+        Random r = new Random();
+        int randomSize = 1024;
+
+        File f = new File("bonus_random.txt");
+        File f2 = new File("bonus_reversed.txt");
+        File f3 = new File("bonus_sorted.txt");
 
         int[] random = new int[]{};
         int[] reversed = new int[]{};
         int[] sorted = new int[]{};
         
-        try
+        try 
         {
-            Scanner sc = new Scanner(f);
-            String[] sArray = sc.nextLine().trim().split(" ");
-            int sLength = sArray.length;
-            random = new int[sLength];
-            for(int i = 0; i < sLength; i++)
+            random = new int[randomSize];
+            FileWriter fw = new FileWriter(f);
+            for(int i = 0; i < randomSize; i++)
             {
-                random[i] = Integer.valueOf(sArray[i]);
+                int randNum = r.nextInt(randomSize);
+                fw.write(randNum + " ");
+                random[i] = randNum;
             }
-            sc.close();
-        }
-        catch(IOException e)
+            fw.close();
+        } 
+        catch (IOException e) 
         {
             e.printStackTrace();
         }
 
-        try
-        {
-            Scanner sc = new Scanner(f2);
-            String[] sArray = sc.nextLine().trim().split(" ");
-            int sLength = sArray.length;
-            reversed = new int[sLength];
-            for(int i = 0; i < sLength; i++)
-            {
-                reversed[i] = Integer.valueOf(sArray[i]);
-            }
-            sc.close();
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-
-        try
-        {
-            Scanner sc = new Scanner(f3);
-            String[] sArray = sc.nextLine().trim().split(" ");
-            int sLength = sArray.length;
-            sorted = new int[sLength];
-            for(int i = 0; i < sLength; i++)
-            {
-                sorted[i] = Integer.valueOf(sArray[i]);
-            }
-            sc.close();
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
+        reversed = new int[randomSize];
+        sorted = new int[randomSize];
 
         long rdTime = System.nanoTime();
         ls.selectionSort(random);
@@ -168,17 +145,17 @@ public class Lab7Driver
         System.out.println("Time taken to selection sort array of sorted numbers: " + esTime + "\n");
 
         long rdTime2 = System.nanoTime();
-        ls.selectionSort(random);
+        ls.bubbleSort(random);
         long erdTime2 = System.nanoTime() - rdTime2;
         System.out.println("Time taken to bubble sort array of random numbers: " + erdTime2);
 
         long rsTime2 = System.nanoTime();
-        ls.selectionSort(reversed);
+        ls.bubbleSort(reversed);
         long ersTime2 = System.nanoTime() - rsTime2;
         System.out.println("Time taken to bubble sort array of reversed sorted numbers: " + ersTime2);
 
         long sTime2 = System.nanoTime();
-        ls.selectionSort(sorted);
+        ls.bubbleSort(sorted);
         long esTime2 = System.nanoTime() - sTime2;
         System.out.println("Time taken to bubble sort array of sorted numbers: " + esTime2 + "\n");
 
@@ -186,33 +163,42 @@ public class Lab7Driver
         
         int size;
 
+        /*
         File f4 = new File("input_100.txt");
         size = updateArray(f4);
         getTimes(size);
+        */
 
-        File f5 = new File("input_1000.txt");
+        File f4 = new File("input_1000.txt");
+        size = updateArray(f4);
+        getTimes(size);
+        
+        size *= 2;
+
+        String newFile = ng.getNewFile(size);
+        File f5 = new File(newFile);
         size = updateArray(f5);
         getTimes(size);
 
-        File f6 = new File("input_5000.txt");
+        size *= 2;
+
+        String newFile2 = ng.getNewFile(size);
+        File f6 = new File(newFile2);
         size = updateArray(f6);
         getTimes(size);
 
-        File f7 = new File("input_10000.txt");
+        size *= 2;
+
+        String newFile3 = ng.getNewFile(size);
+        File f7 = new File(newFile3);
         size = updateArray(f7);
         getTimes(size);
 
-        File f8 = new File("input_50000.txt");
+        size *= 2;
+
+        String newFile4 = ng.getNewFile(size);
+        File f8 = new File(newFile4);
         size = updateArray(f8);
         getTimes(size);
-
-        File f9 = new File("input_100000.txt");
-        size = updateArray(f9);
-        getTimes(size);
-
-        File f10 = new File("input_500000.txt");
-        size = updateArray(f10);
-        getTimes(size);
-
     }
 }

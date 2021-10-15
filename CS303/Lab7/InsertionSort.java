@@ -1,4 +1,6 @@
 /* Author: Vaishak Menon, Date: 09/22/2021 */
+package CS303.Lab7;
+
 
 public class InsertionSort
 {
@@ -11,7 +13,7 @@ public class InsertionSort
         {
             key = array[j];
             i = j - 1;
-            while(i >= 0 && array[i] > key)
+            while(i >= 0 && array[i] < key)
             {
                 array[i + 1] = array[i];
                 i = i - 1;

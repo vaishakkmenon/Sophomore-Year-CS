@@ -1,62 +1,53 @@
-/* Author: Vaishak Menon, Date: 09/22/21 */
+/* Author: Vaishak Menon, Date: 10/15/21 */
+package CS303.Lab7;
 
 public class HeapSort 
 {
-    public void sort(int[] A)
-    {
-        buildMaxHeap(A);
-        for(int i = A.length-1; i >= 2; i--)
+	public void sort(int[] A)
+	{
+		int size = A.length;
+        buildMaxHeap(A, size);
+		for (int i = size - 1; i > 0; i--) 
         {
+			int temp = A[0];
+			A[0] = A[i];
+			A[i] = temp;
 
-            int temp = A[1];
-            A[1] = A[i];
-            A[i] = temp;
+			maxHeapify(A, i, 0);
+		}
+	}
 
-            maxHeapify(A , 1);
-
+    public void buildMaxHeap(int[] A, int size)
+    {
+        for (int i = size / 2 - 1; i >= 0; i--)
+        {
+            maxHeapify(A, size, i);
         }
     }
-    
-    public void buildMaxHeap(int[] A)
-    {
-        int size = A.length-1;
-        for(int i = size/2; i >= 1; i--)
+
+	public void maxHeapify(int arr[], int n, int i)
+	{
+		int largest = i;
+		int l = 2 * i + 1;
+		int r = 2 * i + 2;
+
+		if (l < n && arr[l] < arr[largest])
         {
-            maxHeapify(A, i);
-        }
-    }
-
-    public void maxHeapify(int[] A, int i)
-    {
-        int largest = 0;
-        int size = A.length-1;
-        int l = Left(i);
-        int r = Right(i);
-
-        if(l <= size && A[l] > A[i])
             largest = l;
-        else
-            largest = i;
-
-        if(r <= size && A[r] > A[largest])
-            largest = r;
-        
-        if(largest != i)
-        {
-            int temp = A[i];
-            A[i] = A[largest];
-            A[largest] = temp;
-            maxHeapify(A, largest);
         }
-    }
+			
+		if (r < n && arr[r] < arr[largest])
+        {
+            largest = r;
+        }
 
-    public int Left(int i)
-    {
-        return 2 * i + 1;
-    }
+		if (largest != i) 
+        {
+			int temp = arr[i];
+			arr[i] = arr[largest];
+			arr[largest] = temp;
 
-    public int Right(int i)
-    {
-        return 2 * i + 2;
-    }
+			maxHeapify(arr, n, largest);
+		}
+	}
 }
