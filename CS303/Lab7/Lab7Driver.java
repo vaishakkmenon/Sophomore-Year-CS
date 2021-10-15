@@ -1,3 +1,4 @@
+package CS303.Lab7;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
@@ -5,40 +6,24 @@ import java.util.Scanner;
 public class Lab7Driver 
 {
     private static Lab7Sorts ls = new Lab7Sorts();
-    private static InsertionSort is = new InsertionSort();
-    private static Merge ms = new Merge();
-    private static HeapSort hp = new HeapSort();
-    private static QuickSort qs = new QuickSort();
 
-    private static int[] iArray = new int[]{};
-    private static int[] mArray = new int[]{};
-    private static int[] hArray = new int[]{};
-    private static int[] qsArray = new int[]{};
-    private static int[] tempArray = new int[]{};
     private static int[] ssArray = new int[]{};
     private static int[] bsArray = new int[]{};
 
     private static int updateArray(File f)
     {
+        int length = 0;
         try
         {
             Scanner sc = new Scanner(f);
             String[] sArray = sc.nextLine().trim().split(" ");
             int sLength = sArray.length;
-
-            iArray = new int[sLength];
-            mArray = new int[sLength];
-            hArray = new int[sLength];
-            qsArray = new int[sLength];
+            length = sLength;
             ssArray = new int[sLength];
             bsArray = new int[sLength];
 
             for(int i = 0; i < sLength; i++)
             {
-                iArray[i] = Integer.parseInt(sArray[i]);
-                mArray[i] = Integer.parseInt(sArray[i]);
-                hArray[i] = Integer.parseInt(sArray[i]);
-                qsArray[i] = Integer.parseInt(sArray[i]);
                 ssArray[i] = Integer.parseInt(sArray[i]);
                 bsArray[i] = Integer.parseInt(sArray[i]);
             }
@@ -48,39 +33,11 @@ public class Lab7Driver
         {
             e.printStackTrace();
         }
-
-        tempArray = new int[mArray.length];
-        for(int x = 0; x < mArray.length; x++)
-        {
-            tempArray[x] = mArray[x];
-        }
-
-        return tempArray.length;
-        
+        return length;
     }
 
     private static void getTimes(int size)
     {
-        long iTime = System.nanoTime();
-        is.iSort(iArray);
-        long eiTime = System.nanoTime() - iTime;
-        System.out.println("Time taken to insertion sort array of " + size + " numbers: " + eiTime);
-        
-        long mTime = System.nanoTime();
-        ms.mergeSort(mArray, tempArray, 0, mArray.length-1);
-        long emTime = System.nanoTime() - mTime;
-        System.out.println("Time taken to merge sort array of " + size + " numbers: " + emTime);
-
-        long hTime = System.nanoTime();
-        hp.sort(hArray);
-        long ehTime = System.nanoTime() - hTime;
-        System.out.println("Time taken to heapsort array of " + size + " numbers: " + ehTime);
-
-        long sTime = System.nanoTime();
-        qs.sort(qsArray, 0, qsArray.length-1);
-        long eTime = System.nanoTime() - sTime;
-        System.out.println("Time taken to quick sort array of " + size + " numbers: " + eTime);
-
         long ssTime = System.nanoTime();
         ls.selectionSort(ssArray);
         long esTime = System.nanoTime() - ssTime;
@@ -205,14 +162,5 @@ public class Lab7Driver
         File f8 = new File("input_50000.txt");
         size = updateArray(f8);
         getTimes(size);
-
-        File f9 = new File("input_100000.txt");
-        size = updateArray(f9);
-        getTimes(size);
-
-        File f10 = new File("input_500000.txt");
-        size = updateArray(f10);
-        getTimes(size);
-
     }
 }

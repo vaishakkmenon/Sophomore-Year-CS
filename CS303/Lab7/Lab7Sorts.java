@@ -1,3 +1,5 @@
+package CS303.Lab7;
+
 public class Lab7Sorts
 {
     public void selectionSort(int[] A)
