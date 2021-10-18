@@ -66,7 +66,7 @@ public class Lab7Driver
     private static void getTimes(int size)
     {
         long iTime = System.nanoTime();
-        is.iSort(iArray);
+        is.iSortR(iArray);
         long eiTime = System.nanoTime() - iTime;
         System.out.println("Time taken to insertion sort array of " + size + " numbers: " + eiTime);
         
@@ -102,8 +102,6 @@ public class Lab7Driver
         int randomSize = 1024;
 
         File f = new File("bonus_random.txt");
-        File f2 = new File("bonus_reversed.txt");
-        File f3 = new File("bonus_sorted.txt");
 
         int[] random = new int[]{};
         int[] reversed = new int[]{};
@@ -126,8 +124,11 @@ public class Lab7Driver
             e.printStackTrace();
         }
 
-        reversed = new int[randomSize];
-        sorted = new int[randomSize];
+        is.iSortR(random);
+        reversed = random;
+
+        is.iSort(random);
+        sorted = random;
 
         long rdTime = System.nanoTime();
         ls.selectionSort(random);
@@ -168,7 +169,7 @@ public class Lab7Driver
         size = updateArray(f4);
         getTimes(size);
         */
-
+        
         File f4 = new File("input_1000.txt");
         size = updateArray(f4);
         getTimes(size);
@@ -200,5 +201,6 @@ public class Lab7Driver
         File f8 = new File(newFile4);
         size = updateArray(f8);
         getTimes(size);
+        
     }
 }
