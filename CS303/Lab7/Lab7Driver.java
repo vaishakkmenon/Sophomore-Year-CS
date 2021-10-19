@@ -86,12 +86,12 @@ public class Lab7Driver
         System.out.println("Time taken to quick sort array of " + size + " numbers: " + eTime);
 
         long ssTime = System.nanoTime();
-        ls.selectionSort(ssArray);
+        ls.selectionSortR(ssArray);
         long esTime = System.nanoTime() - ssTime;
         System.out.println("Time taken to selection sort array of " + size + " numbers: " + esTime);
 
         long bTime = System.nanoTime();
-        ls.bubbleSort(bsArray);
+        ls.bubbleSortR(bsArray);
         long ebTime = System.nanoTime() - bTime;
         System.out.println("Time taken to bubble sort array of " + size + " numbers: " + ebTime + "\n");
     }
@@ -103,6 +103,7 @@ public class Lab7Driver
 
         File f = new File("bonus_random.txt");
 
+        int[] temp = new int[]{};
         int[] random = new int[]{};
         int[] reversed = new int[]{};
         int[] sorted = new int[]{};
@@ -124,6 +125,8 @@ public class Lab7Driver
             e.printStackTrace();
         }
 
+        temp = random;
+
         is.iSortR(random);
         reversed = random;
 
@@ -144,6 +147,8 @@ public class Lab7Driver
         ls.selectionSort(sorted);
         long esTime = System.nanoTime() - sTime;
         System.out.println("Time taken to selection sort array of sorted numbers: " + esTime + "\n");
+
+        random = temp;
 
         long rdTime2 = System.nanoTime();
         ls.bubbleSort(random);
