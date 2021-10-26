@@ -1,3 +1,4 @@
+/* Author: Vaishak Menon, Date: 10/26/21 */
 package CS303.Lab8;
 
 public class BST extends Node
@@ -16,7 +17,7 @@ public class BST extends Node
         while(x != null)
         {
             y = x;
-            if(z.data < x.data)
+            if(z.key < x.key)
             {
                 x = x.left;
             }
@@ -30,7 +31,7 @@ public class BST extends Node
         {
             T = z;
         }
-        else if(z.data < y.data)
+        else if(z.key < y.key)
         {
             y.left = z;
         }
@@ -47,16 +48,16 @@ public class BST extends Node
         if(x != null)
         {
             inOrderTreeWalk(x.left);
-            System.out.println(x.data);
+            System.out.println(x.key);
             inOrderTreeWalk(x.right);
         }
     }
 
     public static Node search(Node x, double k)
     {
-        while((x != null) && (k != x.data))
+        while((x != null) && (k != x.key))
         {
-            if(k < x.data)
+            if(k < x.key)
             {
                 x = x.left;
             }

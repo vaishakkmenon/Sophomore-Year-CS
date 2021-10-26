@@ -1,15 +1,16 @@
+/* Author: Vaishak Menon, Date: 10/26/21 */
 package CS303.Lab8;
 
 public class Node 
 {
-    Double data;
-    String s;
+    Double key;
+    String description;
     Node left, right;
     
-    Node(Double key, String description)
+    Node(Double inputKey, String s)
     {
-        data = key;
-        s = description;
+        key = inputKey;
+        description = s;
         left = null;
         right = null;
     }

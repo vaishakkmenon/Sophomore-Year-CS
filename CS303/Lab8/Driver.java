@@ -1,3 +1,4 @@
+/* Author: Vaishak Menon, Date: 10/26/21 */
 package CS303.Lab8;
 
 import java.io.File;
@@ -96,9 +97,13 @@ public class Driver
             {
                 BST.inOrderTreeWalk(root);
             } 
-            else 
+            else if(choice == 1 || choice == 4)
             {
                 System.out.println("WILL NOT RUN INORDER TRAVERSAL DUE TO STACK OVERFLOW ERROR");
+            }
+            else
+            {
+                System.out.println("Default file chosen, Data1.csv is being used");
             }
 
             ArrayList<Double> testInputNum = new ArrayList<Double>();
@@ -165,7 +170,7 @@ public class Driver
                 if(n != null)
                 {
                     System.out.println("Time take to search for the key " + testInputNum.get(i) + ": " + ehTime);
-                    System.out.println("Key: " + n.data + " Description: " + n.s);
+                    System.out.println("Key: " + n.key + " Description: " + n.description);
                 }
                 if(n == null)
                 {
