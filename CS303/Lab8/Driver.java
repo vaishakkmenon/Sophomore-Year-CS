@@ -56,12 +56,16 @@ public class Driver
                 Scanner sc = new Scanner(f);
                 String[] s = new String[2];
                 int count = 0;
-                while (sc.hasNextLine()) {
+                while (sc.hasNextLine()) 
+                {
                     s = sc.nextLine().trim().split(",");
                     A.add(Double.parseDouble(s[0]));
-                    if (s.length != 1) {
+                    if (s.length != 1) 
+                    {
                         S.add(s[1]);
-                    } else {
+                    } 
+                    else 
+                    {
                         s = new String[2];
                         s[0] = String.valueOf(A.get(count));
                         s[1] = "";
