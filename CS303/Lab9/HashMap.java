@@ -11,7 +11,7 @@ public class HashMap
       table = new HashEntry[TABLE_SIZE];
    }
 
-   public String get(Double key) 
+   public String get(double key) 
    {
       String value = "";
       int index = (int) (key % TABLE_SIZE);
@@ -56,14 +56,40 @@ public class HashMap
       }
    }
 
-   public void linearProbe(int key, String value)
+   public void linearProbe(double key, String value)
    {
-      
+      int index = (int) ((key) % TABLE_SIZE);
+
+      for(int i = 1; i < table.length; i++)
+      {
+         if(table[index] != null)
+         {
+            index = (int) ((key + i) % TABLE_SIZE);
+         }
+         else
+         {
+            table[index] = new HashEntry(key, value);
+            break;
+         }
+      }
    }
 
    public void quadraticProbe(int key, String value)
    {
-     // Implement
+      int index = (int) ((key) % TABLE_SIZE);
+
+      for(int i = 1; i < table.length; i*=2)
+      {
+         if(table[index] != null)
+         {
+            index = (int) ((key + i) % TABLE_SIZE);
+         }
+         else
+         {
+            table[index] = new HashEntry(key, value);
+            break;
+         }
+      }
    }
 
 }
