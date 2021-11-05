@@ -103,9 +103,9 @@ public class Driver
                 }
             }
             
-            System.out.println("Enter size of HashMap:");
-            int HMsize = userInput.nextInt();
-            HashMap H = new HashMap(HMsize);
+            //System.out.println("Enter size of HashMap:");
+            //int HMsize = userInput.nextInt();
+            HashMap H = new HashMap();
 
             System.out.println("Choose method of probing:");
             System.out.println("1: Put\n2: Linear Probe\n3. Quadratic Probe");

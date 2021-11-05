@@ -2,16 +2,12 @@ package CS303.Lab9;
 
 public class HashMap 
 {
-   private static int TABLE_SIZE = 100;
+   private final static int TABLE_SIZE = 100;
 
    HashEntry[] table;
 
-   HashMap(int size) 
+   HashMap() 
    {
-      if(size != -1)
-      {
-         TABLE_SIZE = size;
-      }
       table = new HashEntry[TABLE_SIZE];
    }
 
