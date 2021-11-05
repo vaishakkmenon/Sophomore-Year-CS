@@ -119,7 +119,7 @@ public class Driver
                         Double key = A.get(j);
                         String value = S.get(j);
                         // System.out.println("Put Key: " + key + " Put Value: " + value);
-                        H.put(key, value);
+                        H.put(key, value,1);
                     }
                     break;
                 
@@ -129,7 +129,7 @@ public class Driver
                         Double key = A.get(j);
                         String value = S.get(j);
                         // System.out.println("Put Key: " + key + " Put Value: " + value);
-                        H.linearProbe(key, value);
+                        H.linearProbe(key, value,1);
                     }
                     break;
                 
@@ -139,11 +139,12 @@ public class Driver
                         Double key = A.get(j);
                         String value = S.get(j);
                         // System.out.println("Put Key: " + key + " Put Value: " + value);
-                        H.quadraticProbe(key, value);
+                        H.quadraticProbe(key, value,1);
                     }
                     break;
             }
 
+            /*
             for(int i = 0; i < H.table.length; i++)
             {
                 HashEntry a = H.table[i];
@@ -156,7 +157,7 @@ public class Driver
                     System.out.println("Index: " + i + ", Associated Key: " + a.getKey() + ", Associated Value: " + a.getValue());
                 }
             }
-            
+            */
             /*
             System.out.println("Enter key for get function");
             Scanner sc2 = new Scanner(System.in);
@@ -222,11 +223,13 @@ public class Driver
                     break;
             }
 
+            /*
             for(Double d : testInputNum)
             {
                 String s = H.get(d);
                 System.out.println("Key: " + d + " Value: " + s);
             }
+            */
 
             System.out.println("Choose next action");
             System.out.println("Choose a new file or hit 6 to exit");
