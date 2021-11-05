@@ -2,12 +2,16 @@ package CS303.Lab9;
 
 public class HashMap 
 {
-   private final static int TABLE_SIZE = 100;
+   private static int TABLE_SIZE = 100;
 
    HashEntry[] table;
 
-   HashMap() 
+   HashMap(int size) 
    {
+      if(size != -1)
+      {
+         TABLE_SIZE = size;
+      }
       table = new HashEntry[TABLE_SIZE];
    }
 
@@ -23,10 +27,11 @@ public class HashMap
       int originalIndex = index;
       while(table[index].getKey() != key)
       {
-         index = (7 * (index + 1)) % TABLE_SIZE;
-         //System.out.println("Index: " + index);
+         index = (7 * index + 1) % TABLE_SIZE;
          if(index == originalIndex)
+         {
             return "Key not in file or was replaced by another key";
+         }
       }
 
       value = table[index].getValue();
@@ -48,9 +53,11 @@ public class HashMap
          int originalIndex = index;
          while(table[index] != null)
          {
-            index = (7 * (index + 1)) % TABLE_SIZE;
+            index = (7 * index + 1) % TABLE_SIZE;
             if(index == originalIndex)
+            {
                break;
+            }
          }
          table[index] = new HashEntry(key, value);
       }
@@ -74,15 +81,15 @@ public class HashMap
       }
    }
 
-   public void quadraticProbe(int key, String value)
+   public void quadraticProbe(double key, String value)
    {
       int index = (int) ((key) % TABLE_SIZE);
 
-      for(int i = 1; i < table.length; i*=2)
+      for(int i = 1; i < table.length; i++)
       {
          if(table[index] != null)
          {
-            index = (int) ((key + i) % TABLE_SIZE);
+            index = (int) ((key + Math.pow(i,2)) % TABLE_SIZE);
          }
          else
          {
