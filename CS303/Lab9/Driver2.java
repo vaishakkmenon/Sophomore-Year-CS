@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Driver 
+public class Driver2 
 {
     public static void main(String[] args)
     {
@@ -105,83 +105,12 @@ public class Driver
             
             //System.out.println("Enter size of HashMap:");
             //int HMsize = userInput.nextInt();
-            HashMap H = new HashMap();
+            HashMap2 H = new HashMap2();
 
             System.out.println("Choose method of probing:");
             System.out.println("1: Put\n2: Linear Probe\n3. Quadratic Probe");
             int pChoice = userInput.nextInt();
 
-            switch(pChoice)
-            {
-                case 1:
-                    long totalTime = 0;
-                    for (int j = 0; j < A.size(); j++) 
-                    {
-                        Double key = A.get(j);
-                        String value = S.get(j);
-                        // System.out.println("Put Key: " + key + " Put Value: " + value);
-                        long bTime = System.nanoTime();
-                        H.put(key, value);
-                        long ebTime = System.nanoTime() - bTime;
-                        totalTime += ebTime;
-                    }
-                    System.out.println("Total time take to put all keys using put method was : " + totalTime + " nanoseconds");
-                    break;
-                
-                case 2:
-                    totalTime = 0;
-                    for (int j = 0; j < A.size(); j++) 
-                    {
-                        Double key = A.get(j);
-                        String value = S.get(j);
-                        // System.out.println("Put Key: " + key + " Put Value: " + value);
-                        long bTime = System.nanoTime();
-                        H.linearProbe(key, value);
-                        long ebTime = System.nanoTime() - bTime;
-                        totalTime += ebTime;
-                    }
-                    System.out.println("Total time take to put all keys using linear probe method was : " + totalTime + " nanoseconds");
-                    break;
-                
-                case 3:
-                    totalTime = 0;
-                    for (int j = 0; j < A.size(); j++) 
-                    {
-                        Double key = A.get(j);
-                        String value = S.get(j);
-                        // System.out.println("Put Key: " + key + " Put Value: " + value);
-                        long bTime = System.nanoTime();
-                        H.quadraticProbe(key, value);
-                        long ebTime = System.nanoTime() - bTime;
-                        totalTime += ebTime;
-                    }
-                    System.out.println("Total time take to put all keys using quadratic probe method was : " + totalTime + " nanoseconds");
-                    break;
-            }
-
-            /*
-            for(int i = 0; i < H.table.length; i++)
-            {
-                HashEntry a = H.table[i];
-                if(a == null)
-                {
-                    System.out.println("Index: " + i + ", Associated Key: null" + ", Associated Value: null");
-                }
-                else
-                {
-                    System.out.println("Index: " + i + ", Associated Key: " + a.getKey() + ", Associated Value: " + a.getValue());
-                }
-            }
-            */
-            /*
-            System.out.println("Enter key for get function");
-            Scanner sc2 = new Scanner(System.in);
-            double inputKey = sc2.nextDouble();
-            String returnGet = H.get(inputKey);
-            System.out.println("Return from get is: " + returnGet);
-            sc2.close();
-            */
-            
             ArrayList<Double> testInputNum = new ArrayList<Double>();
             ArrayList<String> testInputS = new ArrayList<String>();
             File f2 = new File("");
@@ -238,17 +167,119 @@ public class Driver
                     break;
             }
 
-            long totalTime = 0;
-            for (Double d : testInputNum) 
+            switch(pChoice)
             {
-                long bTime = System.nanoTime();
-                String s = H.get(d);
-                long ebTime = System.nanoTime() - bTime;
-                totalTime += ebTime;
-                System.out.println("Key: " + d + " Value: " + s);
+                case 1:
+                    for (int j = 0; j < 2000; j++) 
+                    {
+                        Double key = A.get(j);
+                        String value = S.get(j);
+                        System.out.println("Put Key: " + key + " Put Value: " + value);
+                        H.put(key, value,1);
+                        H.put(key, value,2);
+                        H.put(key, value,3);
+                        H.put(key, value,4);
+                        H.put(key, value,5);
+                    }
+
+                    for (int i = 0; i < H.table.length; i++) 
+                    {
+                        HashEntry a = H.table[i];
+                        if (a == null) 
+                        {
+                            System.out.println("Index: " + i + ", Associated Key: null" + ", Associated Value: null");
+                        } 
+                        else 
+                        {
+                            System.out.println("Index: " + i + ", Associated Key: " + a.getKey()
+                                    + ", Associated Value: " + a.getValue());
+                        }
+                    }
+
+                    for (int i = 1; i < 6; i++) 
+                    {
+                        System.out.println("Table " + i + ": ");
+                        long totalTime = 0;
+                        for (Double d : testInputNum) 
+                        {
+                            long bTime = System.nanoTime();
+                            String s = H.get(d, i);
+                            long ebTime = System.nanoTime() - bTime;
+                            totalTime += ebTime;
+                            System.out.println("Key: " + d + " Value: " + s);
+                        }
+                        System.out.println("Time for table " + i + " with 100 keys inputted: " + totalTime + " nanoseconds");
+
+                    }
+
+                    break;
+                
+                case 2:
+                    for (int j = 0; j < 100; j++) 
+                    {
+                        Double key = A.get(j);
+                        String value = S.get(j);
+                        // System.out.println("Put Key: " + key + " Put Value: " + value);
+                        H.linearProbe(key, value, 1);
+                        H.linearProbe(key, value, 2);
+                        H.linearProbe(key, value, 3);
+                        H.linearProbe(key, value, 4);
+                        H.linearProbe(key, value, 5);
+                    }
+
+                    for (int i = 1; i < 6; i++) 
+                    {
+                        System.out.println("Table " + i + ": ");
+                        long totalTime = 0;
+                        for (Double d : testInputNum) 
+                        {
+                            long bTime = System.nanoTime();
+                            String s = H.get(d, i);
+                            long ebTime = System.nanoTime() - bTime;
+                            totalTime += ebTime;
+                            System.out.println("Key: " + d + " Value: " + s);
+                        }
+                        System.out.println("Time for table " + i + "with 100 keys inputted: " + totalTime + " nanoseconds");
+                    }
+                    break;
+                
+                case 3:
+                    for (int j = 0; j < 100; j++) 
+                    {
+                        Double key = A.get(j);
+                        String value = S.get(j);
+                        // System.out.println("Put Key: " + key + " Put Value: " + value);
+                        H.quadraticProbe(key, value, 1);
+                        H.quadraticProbe(key, value, 2);
+                        H.quadraticProbe(key, value, 3);
+                        H.quadraticProbe(key, value, 4);
+                        H.quadraticProbe(key, value, 5);
+                    }
+
+                    for (int i = 1; i < 6; i++) 
+                    {
+                        System.out.println("Table " + i + ": ");
+                        long totalTime = 0;
+                        for (Double d : testInputNum) 
+                        {
+                            long bTime = System.nanoTime();
+                            String s = H.get(d, i);
+                            long ebTime = System.nanoTime() - bTime;
+                            totalTime += ebTime;
+                            System.out.println("Key: " + d + " Value: " + s);
+                        }
+                        System.out.println("Time for table " + i + "with 100 keys inputted: " + totalTime + " nanoseconds");
+                    }
+                    break;
             }
-            System.out.println("Total time take to search for all keys was: " + totalTime + " nanoseconds");
-                        
+            /*
+            System.out.println("Enter key for get function");
+            Scanner sc2 = new Scanner(System.in);
+            double inputKey = sc2.nextDouble();
+            String returnGet = H.get(inputKey);
+            System.out.println("Return from get is: " + returnGet);
+            sc2.close();
+            */
 
             System.out.println("Choose next action");
             System.out.println("Choose a new file or hit 6 to exit");
