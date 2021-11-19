@@ -1,26 +1,12 @@
-import java.awt.Color;
-import java.util.LinkedList;
-
 public class Vertex 
 {
+    boolean checked = false;
     int id;
-    Color c;
-    int d;
-    Vertex p;
-    LinkedList<Integer> e;
+    Vertex p = null;
+    int accessed = 0;
 
-    public Vertex(int vNum, LinkedList<Integer> edges)
+    public Vertex(int ID)
     {
-        id = vNum;
-        e = edges;
+        id = ID;
     }
-
-    public Vertex(int vNum, Color color, int distance, Vertex parent, LinkedList<Integer> edges)
-    {
-        id = vNum;
-        c = color;
-        d = distance;
-        p = parent;
-        e = edges;
-    }    
 }

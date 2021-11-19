@@ -1,35 +1,51 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Driver 
 {
-    public static void main(String[] args)
+    public static void main(String[] args) 
     {
         File f = new File("MediumG.txt");
-        Scanner sc;
-        try {
-            sc = new Scanner(f);
-            while (sc.hasNextLine()) 
+        try 
+        {
+            Scanner choice1 = new Scanner(f);
+
+            String[] s = choice1.nextLine().split(" ");
+            while(s.length == 1)
             {
-                String[] s = sc.nextLine().split(" ");
-                String[] s2 = sc.nextLine().split(" ");
-                for (String a : s) 
-                {
-                    System.out.print("S: "+ a + " ");
-                }
-                System.out.println();
-                for (String b : s2) 
-                {
-                    System.out.print("S2: "+ b + " ");
-                }
-                System.out.println();
+                s = choice1.nextLine().split(" ");
             }
-            sc.close();
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
+            int originalV = Integer.parseInt(s[0]);
+            int vertex = Integer.parseInt(s[0]);
+
+            do
+            {
+                //System.out.println("Here");
+                LinkedList<Integer> edges = new LinkedList<Integer>();
+                if(originalV == vertex)
+                {
+                    edges.add(Integer.parseInt(s[1]));
+                    s = choice1.nextLine().split(" ");
+                    vertex = Integer.parseInt(s[0]);
+                }
+                else
+                {
+                    //System.out.println("Different");
+                    //System.out.println("Original Vertex: " + originalV);
+                    //System.out.println("Vertex: " + vertex);
+                    originalV = vertex;
+                    s = choice1.nextLine().split(" ");
+                }
+            }
+            while(choice1.hasNextLine());
+            choice1.close();
+            
+        } 
+        catch (FileNotFoundException e) 
+        {
             e.printStackTrace();
         }
-        
     }
 }

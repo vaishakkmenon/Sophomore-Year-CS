@@ -1,57 +1,65 @@
 import java.util.LinkedList;
-import java.util.Queue;
-import java.awt.Color;
 
 public class BFS
 {
+    int origin;
+    LinkedList<Vertex> input[];
+    LinkedList<Vertex> reInput;
 
-    LinkedList<Vertex> L = new LinkedList<Vertex>();
-
-    public void BFSearch(LinkedList<Vertex> sList, Vertex s)
+    public void BFSearch3(LinkedList<Vertex> V[], int source)
     {
-        L = sList;
-        for(Vertex u : L)
+        origin = source;
+        LinkedList<Vertex> queue = new LinkedList<Vertex>();
+
+        if(!(V[source].isEmpty()))
         {
-            u.c = Color.WHITE;
-            u.d = Integer.MAX_VALUE;
-            u.p = null;
-        }
-        s.c = Color.GRAY;
-        s.d = 0;
-        s.p = null;
-        Queue<Vertex> Q = new LinkedList<Vertex>();
-        Q.add(s);
-        while(Q.size() != 0)
-        {
-            Vertex u = Q.poll();
-            for(Vertex v : L)
+            queue.add(V[source].removeFirst());
+            while (queue.size() != 0) 
             {
-                if(v.c == Color.WHITE)
+                reInput = new LinkedList<Vertex>();
+                reInput.add(queue.get(0));
+                Vertex num = queue.poll();
+                
+                int initialSize = V[num.id].size();
+                while ( !(V[num.id].isEmpty()) && num.accessed <= initialSize) 
                 {
-                    v.c = Color.GRAY;
-                    v.d = u.d + 1;
-                    v.p = u;
-                    Q.add(v);
+                    Vertex n = V[num.id].poll();
+                    
+                    //System.out.println(n.id);
+                    if (!n.checked) 
+                    {
+                        n.checked = true;
+                        n.p = num;
+                        queue.add(n);
+                        reInput.add(n);
+                        num.accessed += 1;
+                    }
+                }
+                
+                if(reInput.size() != 0)
+                {
+                    V[num.id] = reInput;
                 }
             }
-            u.c = Color.BLACK;
         }
+        input = V;
     }
 
-    public void PrintPath(Vertex s, Vertex v)
+    public void printPath(LinkedList<Vertex> input[], Vertex s, Vertex v)
     {
-        if (v == s)
+        if(s == v)
         {
-            System.out.println(s);
+            System.out.print(s.id + ": ");
         }
         else if(v.p == null)
         {
-            System.out.println("No path from " + s + " to " + v + " exists!");
+            System.out.print("No path from " + s.id + " to " + v.id + " exists");
         }
         else
         {
-            PrintPath(s, v.p);
-            System.out.println(v);
+            printPath(input, s, v.p);
+            System.out.print(v.id + " ");
         }
+
     }
 }
