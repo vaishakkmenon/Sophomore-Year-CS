@@ -1,7 +1,7 @@
-/* Author: Vaishak Menon, Date: 10/26/21 */
+/* Author: Vaishak Menon, Date: 11/29/21 */
 package CS303.Lab10;
 
-public class BST extends Node
+public class BST extends BSTNode<String>
 {
 
     BST(Double key, String s)
@@ -9,10 +9,10 @@ public class BST extends Node
         super(key, s);
     }
 
-    public static Node TreeInsert(Node T, Node z)
+    public static BSTNode<String> TreeInsert(BSTNode<String> T, BSTNode<String> z)
     {
-        Node y = null;
-        Node x = T;
+        BSTNode<String> y = null;
+        BSTNode<String> x = T;
 
         while(x != null)
         {
@@ -43,7 +43,7 @@ public class BST extends Node
         return T;
     }
 
-    public static void inOrderTreeWalk(Node x)
+    public void inOrderTreeWalk(BSTNode<String> x)
     {
         if(x != null)
         {
@@ -53,7 +53,7 @@ public class BST extends Node
         }
     }
 
-    public static Node search(Node x, double k)
+    public static BSTNode<String> search(BSTNode<String> x, double k)
     {
         while((x != null) && (k != x.key))
         {

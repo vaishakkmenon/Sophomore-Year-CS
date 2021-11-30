@@ -1,3 +1,4 @@
+package CS303.Lab11;
 import java.util.LinkedList;
 
 public class BFS

@@ -1,3 +1,5 @@
+package CS303.Lab11;
+
 public class Vertex 
 {
     boolean checked = false;

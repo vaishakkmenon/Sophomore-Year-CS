@@ -1,20 +1,34 @@
+/* Author: Vaishak Menon, Date: 11/29/21 */
 package CS303.Lab10;
-
-import java.awt.Color;
 
 public class RBTree extends BST
 {
+    static RBNode<String> rootNode;
+    static RBNode<String> nil = new RBNode<String> (null, null);
+
+    RBTree(RBNode<String> root, Double key, String s)
+    {
+        super(key, s);
+        rootNode = root;
+        rootNode.left = nil;
+        rootNode.right = nil;
+        rootNode.parent = nil;
+        nil.left = null;
+        nil.right = null;
+        nil.parent = null;
+        nil.color = true;
+    }
+
     RBTree(Double key, String s) 
     {
         super(key, s);
     }
 
-    public void RBInsert(Node T, Node z)
+    public void RBInsert(RBNode<String> z)
     {
-        Node y = null;
-        Node x= T;
-
-        while(x != null)
+        RBNode<String> y = nil;
+        RBNode<String> x = rootNode;
+        while(x != nil)
         {
             y = x;
             if(z.key < x.key)
@@ -26,11 +40,10 @@ public class RBTree extends BST
                 x = x.right;
             }
         }
-
-        z.parent = y;
-        if(y == null)
+        z.parent = nil;
+        if(y == nil)
         {
-            T = z;
+            rootNode = z;
         }
         else if(z.key < y.key)
         {
@@ -40,71 +53,74 @@ public class RBTree extends BST
         {
             y.right = z;
         }
-        z.left = null;
-        z.right = null;
-        z.c = Color.RED;
-        RBInsertFix(T, z);
+        z.left = nil;
+        z.right = nil;
+        z.color = false;
+        RBInsertFix(rootNode, z);
     }
 
-    public void RBInsertFix(Node T, Node z)
+    public static void RBInsertFix(RBNode<String> T, RBNode<String> z)
     {
-        Node y;
+        RBNode<String> y;
 
-        while(z.parent.c == Color.RED)
+        while (z.parent.color == false) 
         {
-            if(z.parent == z.parent.parent.left)
+            if (z.parent == z.parent.parent.left) 
             {
                 y = z.parent.parent.right;
-                if(y.c == Color.RED)
+                if (y.color == false) 
                 {
-                    z.parent.c = Color.BLACK;
-                    y.c = Color.BLACK;
-                    z.parent.parent.c = Color.RED;
+                    z.parent.color = true;
+                    y.color = true;
+                    z.parent.parent.color = false;
                     z = z.parent.parent;
-                }
-                else if(z == z.parent.right)
+                } 
+                else 
                 {
-                    z = z.parent;
-                    LeftRotate(T,z);
+                    if (z == z.parent.right) 
+                    {
+                        z = z.parent;
+                        LeftRotate(T, z);
+                    }
+                    z.parent.color = true;
+                    z.parent.parent.color = false;
+                    RightRotate(T, z.parent.parent);
                 }
-                z.parent.c = Color.BLACK;
-                z.parent.parent.c = Color.RED;
-                RightRotate(T,z.parent.parent);
-            }
-            else
+            } 
+            else 
             {
                 y = z.parent.parent.left;
-                if(y.c == Color.RED)
+                if (y.color == false) 
                 {
-                    z.parent.c = Color.BLACK;
-                    y.c = Color.BLACK;
-                    z.parent.parent.c = Color.RED;
+                    z.parent.color = true;
+                    y.color = true;
+                    z.parent.parent.color = false;
                     z = z.parent.parent;
                 }
-                else if(z == z.parent.left)
+                else if (z == z.parent.left) 
                 {
                     z = z.parent;
-                    LeftRotate(T,z);
+                    LeftRotate(T, z);
                 }
-                z.parent.c = Color.BLACK;
-                z.parent.parent.c = Color.RED;
-                RightRotate(T,z.parent.parent);
+                z.parent.color = true;
+                z.parent.parent.color = false;
+                RightRotate(T, z.parent.parent);
             }
         }
 
-        T.c = Color.BLACK;
+        T.color = true;
     }
 
-    public void LeftRotate(Node T, Node x)
+    public static void LeftRotate(RBNode<String> T, RBNode<String> x)
     {
-        Node y = x.right;
+        RBNode<String> y = x.right;
         x.right = y.left;
-        if(y.left != null)
+        if(y.left != nil)
         {
             y.left.parent = x;
         }
         y.parent = x.parent;
-        if(x.parent == null)
+        if(x.parent == nil)
         {
             T = y;
         }
@@ -120,16 +136,16 @@ public class RBTree extends BST
         x.parent = y;
     }
 
-    public void RightRotate(Node T, Node x)
+    public static void RightRotate(RBNode<String> T, RBNode<String> x)
     {
-        Node y = x.left;
+        RBNode<String> y = x.left;
         x.left = y.right;
-        if(y.right != null)
+        if(y.right != nil)
         {
             y.right.parent = x;
         }
         y.parent = x.parent;
-        if(x.parent == null)
+        if(x.parent == nil)
         {
             T = y;
         }
@@ -143,5 +159,31 @@ public class RBTree extends BST
         }
         y.right = x;
         x.parent = y;
+    }
+
+    public void inOrderTreeWalk(RBNode<String> x)
+    {
+        if(x != null && x != nil)
+        {
+            inOrderTreeWalk(x.left);
+            //System.out.println(x.key);
+            inOrderTreeWalk(x.right);
+        }
+    }
+
+    public RBNode<String> search(RBNode<String> x, double k)
+    {
+        while((x != null) && (k != x.key))
+        {
+            if(k < x.key)
+            {
+                x = x.left;
+            }
+            else
+            {
+                x = x.right;
+            }
+        }
+        return x;
     }
 }
